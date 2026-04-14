@@ -1,31 +1,36 @@
 
 # fastVoteR
 
+[Package website](https://bblodfon.github.io/fastVoteR/)
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/bblodfon/fastVoteR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bblodfon/fastVoteR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/bblodfon/fastVoteR/graph/badge.svg)](https://app.codecov.io/gh/bblodfon/fastVoteR)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/fastVoteR)](https://CRAN.R-project.org/package=fastVoteR)
 <!-- badges: end -->
 
-## Overview
-
-`fastVoteR` is an R package with Efficient
-[Rcpp](https://github.com/rcppcore/rcpp) Voting Methods for Committee
-Selection.
-
-Still **under development**.
+`fastVoteR` is an R package with efficient voting methods for committee
+selection. Uses [Rcpp](https://cran.r-project.org/package=Rcpp).
 
 ## Installation
 
-Development version:
+CRAN version:
+
+``` r
+install.packages("fastVoteR")
+```
+
+Development version from GitHub:
 
 ``` r
 # install.packages("pak")
 pak::pak("bblodfon/fastVoteR")
 ```
 
-## Usage
+## Example
 
 ``` r
 library(fastVoteR)
@@ -35,25 +40,13 @@ candidates = paste0("V", seq_len(5))
 candidates
 #> [1] "V1" "V2" "V3" "V4" "V5"
 
-# 4 voters
+# 4 voters with their preferences (approval ballots)
 voters = list(
   c("V3", "V1", "V4"),
   c("V3", "V1"),
   c("V3", "V2"),
   c("V2", "V4")
 )
-voters
-#> [[1]]
-#> [1] "V3" "V1" "V4"
-#> 
-#> [[2]]
-#> [1] "V3" "V1"
-#> 
-#> [[3]]
-#> [1] "V3" "V2"
-#> 
-#> [[4]]
-#> [1] "V2" "V4"
 
 set.seed(42)
 
@@ -107,8 +100,6 @@ See [vote](https://CRAN.R-project.org/package=vote) and
 [votesys](https://CRAN.R-project.org/package=votesys) R packages. For
 strictly ABC-voting rules, see
 [abcvoting](https://github.com/martinlackner/abcvoting) Python package.
-
-------------------------------------------------------------------------
 
 ## Code of Conduct
 
